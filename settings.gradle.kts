@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "barto"
 include(":app")
+include(":sample")
