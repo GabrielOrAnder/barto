@@ -5,15 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".presentation.search_bar.SearchBarFragment">
+    tools:context=".presentation.loading_button.LoadingButtonFragment">
 
-    <br.com.gabrielorander.barto.search_bar.SearchView
-        android:id="@+id/search_bar"
+    <br.com.gabrielorander.barto.button.LoadingButton
+        android:id="@+id/loadingButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/search_bar_hint"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/commonButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Common Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loadingButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

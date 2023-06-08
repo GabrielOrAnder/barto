@@ -4,4 +4,5 @@
     <string name="search_bar_clear_content_description">Clear search</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading_button_label">Button Label</string>
 </resources>
