@@ -12,11 +12,11 @@
         android:layout_height="wrap_content"
         android:minHeight="@dimen/button_min_height"
         android:gravity="center"
+        style="?attr/loadingButtonStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="@string/loading_button_label"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/loadingButton"

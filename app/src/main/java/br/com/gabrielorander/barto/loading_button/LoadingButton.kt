@@ -1,11 +1,13 @@
-package br.com.gabrielorander.barto.button
+package br.com.gabrielorander.barto.loading_button
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
-import br.com.gabrielorander.barto.databinding.LoadingButtonBinding
+import androidx.core.view.isVisible
+import br.com.gabrielorander.barto.R
+import br.com.gabrielorander.barto.databinding.ViewLoadingButtonBinding
 
 class LoadingButton @JvmOverloads constructor(
     context: Context,
@@ -13,10 +15,11 @@ class LoadingButton @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr){
 
-    private var binding: LoadingButtonBinding
+    private var binding: ViewLoadingButtonBinding
 
     init {
-        binding = LoadingButtonBinding.inflate(LayoutInflater.from(context))
+        binding = ViewLoadingButtonBinding.inflate(LayoutInflater.from(context))
+        //addView(binding.root)
     }
 
     fun showLoading() {
@@ -31,9 +34,5 @@ class LoadingButton @JvmOverloads constructor(
 
     fun setText(text: String) {
         binding.textButton.text = text
-    }
-
-    fun setTextColor(color: Int) {
-        binding.textButton.setTextColor(color)
     }
 }

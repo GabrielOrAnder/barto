@@ -14,4 +14,13 @@
         </attr>
     </declare-styleable>
 
+    <!-- ====================== -->
+    <!-- Loading Button Style   -->
+    <!-- ====================== -->
+    <eat-comment />
+
+    <declare-styleable name="LoadingButton">
+        <attr name="loadingButtonStyle" format="reference" />
+    </declare-styleable>
+
 </resources>

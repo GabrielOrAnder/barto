@@ -7,10 +7,10 @@
     android:padding="16dp"
     tools:context=".presentation.loading_button.LoadingButtonFragment">
 
-    <br.com.gabrielorander.barto.button.LoadingButton
+    <br.com.gabrielorander.barto.loading_button.LoadingButton
         android:id="@+id/loadingButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
