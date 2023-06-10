@@ -2,9 +2,9 @@ name: Build Application
 
 on:
   push:
-    branches: [ "master", "improvement/*", "feature/*", "enhancement/*", "fix/*"]
+    branches: [ "master", "develop", "improvement/*", "feature/*", "enhancement/*", "fix/*"]
   pull_request:
-    branches: [ "master", "improvement/*", "feature/*", "enhancement/*", "fix/*" ]
+    branches: [ "master", "develop", "improvement/*", "feature/*", "enhancement/*", "fix/*" ]
 
 jobs:
   build:
