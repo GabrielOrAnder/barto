@@ -21,6 +21,9 @@
 
     <declare-styleable name="LoadingButton">
         <attr name="loadingButtonStyle" format="reference" />
+        <attr name="buttonLabel" format="string" />
+        <attr name="isLoading" format="boolean" />
+        <attr name="enabled" format="boolean" />
     </declare-styleable>
 
 </resources>

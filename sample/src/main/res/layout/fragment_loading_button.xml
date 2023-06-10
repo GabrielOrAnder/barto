@@ -10,17 +10,11 @@
     <br.com.gabrielorander.barto.loading_button.LoadingButton
         android:id="@+id/loadingButton"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        app:buttonLabel="@string/loading_button_label"
+        app:isLoading="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/commonButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Common Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loadingButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

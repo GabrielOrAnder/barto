@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="LoadingButton.Light" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/loading_button_light_background</item>
+        <item name="android:background">@drawable/loading_button_light_selector</item>
         <item name="android:textColor">@color/md_theme_light_onPrimary</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="LoadingButton.Dark" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/loading_button_dark_background</item>
+        <item name="android:background">@drawable/loading_button_dark_selector</item>
         <item name="android:textColor">@color/md_theme_dark_onPrimary</item>
         <item name="android:textStyle">bold</item>
     </style>
