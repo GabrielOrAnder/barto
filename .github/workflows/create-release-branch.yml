@@ -44,14 +44,29 @@ jobs:
         run: git push origin release/v${{ github.event.inputs.versionName }}
 
       - name: Create pull request to master
-        uses: thomaseizinger/create-pull-request@1.0.0
+        uses: peter-evans/create-pull-request@v5
         with:
-          GITHUB_TOKEN: ${{ secrets.CI_GH_TOKEN_BOT }}
-          head: release/v${{ github.event.inputs.versionName }}
+          token: ${{ secrets.CI_GH_TOKEN_BOT }}
+          branch: release/v${{ github.event.inputs.versionName }}
           base: master
-          title: Release v${{ github.event.inputs.versionName }}
-          reviewers: ${{ github.event.issue.user.login }}
+          delete-branch: true
+          title: 'Release v${{ github.event.inputs.versionName }}'
           body: |
             Olá!
             Esta PR foi criada usando o GitHub Actions.
             `version_name` e `version_code` forão atualizadas no commit: ${{ steps.make-commit.outputs.commit }}.
+          labels: |
+            release
+          
+      
+      #- name: Create pull request to master
+      #  uses: thomaseizinger/create-pull-request@1.0.0
+      #  with:
+      #    head: release/v${{ github.event.inputs.versionName }}
+      #    base: master
+      #    title: Release v${{ github.event.inputs.versionName }}
+      #    GITHUB_TOKEN: ${{ secrets.CI_GH_TOKEN_BOT }}
+      #    body: |
+      #      Olá!
+      #      Esta PR foi criada usando o GitHub Actions.
+      #      `version_name` e `version_code` forão atualizadas no commit: ${{ steps.make-commit.outputs.commit }}.
