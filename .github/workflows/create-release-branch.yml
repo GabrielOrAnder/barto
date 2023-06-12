@@ -28,13 +28,13 @@ jobs:
         run: git push origin release/v${{ github.event.inputs.versionName }}
 
       - name: Create pull request to master
-        uses: repo-sync/pull-request@v2.12.1
+        uses: thomaseizinger/create-pull-request@1.0.0
         with:
-          source_branch: release/v${{ github.event.inputs.versionName }}
-          destination_branch: master
-          pr_title: Release v${{ github.event.inputs.versionName }}
-          pr_body: |
+          head: release/v${{ github.event.inputs.versionName }}
+          base: master
+          title: Release v${{ github.event.inputs.versionName }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          body: |
             Olá!
             Esta PR foi criada usando o GitHub Actions.
             `version_name` e `version_code` forão atualizadas no commit: ${{ steps.make-commit.outputs.commit }}.
-          pr_label: release
