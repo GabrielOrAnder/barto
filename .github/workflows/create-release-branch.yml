@@ -43,7 +43,7 @@ jobs:
             Esta PR foi criada usando o GitHub Actions.
       
       - name: Changelog
-        run: git log --pretty=format:"* [%h](<link>) %s" master..${{ env.BRANCH_NAME }}
+        run: git log --pretty=format:"* [%h](<link>) %s" origin/master..${{ env.BRANCH_NAME }}
           
       - name: Generate changelog
         id: changelog
