@@ -28,7 +28,7 @@ jobs:
         run: git push origin release/v${{ github.event.inputs.versionName }}
 
       - name: Create pull request to master
-        uses: thomaseizinger/create-pull-request@1
+        uses: thomaseizinger/create-pull-request@1.3.0
         with:
           head: release/v${{ github.event.inputs.versionName }}
           base: master
