@@ -32,13 +32,13 @@ jobs:
       #  with:
       #    version: ${{ github.event.inputs.versionName }}
 
-      - name: Commit changelog and manifest files
-        id: make-commit
-        run: |
-          git add app_versions.gradle
-          git add CHANGELOG.md
-          git commit --message "Preparação para release ${{ github.event.inputs.versionName }}"
-          echo "::set-output name=commit::$(git rev-parse HEAD)"
+      #- name: Commit changelog and manifest files
+      #  id: make-commit
+      #  run: |
+      #    git add app_versions.gradle
+      #    git add CHANGELOG.md
+      #    git commit --message "Preparação para release ${{ github.event.inputs.versionName }}"
+      #    echo "::set-output name=commit::$(git rev-parse HEAD)"
 
       - name: Push new branch
         run: git push origin release/v${{ github.event.inputs.versionName }}
