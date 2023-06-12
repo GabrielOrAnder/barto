@@ -28,13 +28,26 @@ jobs:
         run: git push origin release/v${{ github.event.inputs.versionName }}
 
       - name: Create pull request to master
-        uses: thomaseizinger/create-pull-request@1.0.0
+        uses: thomaseizinger/create-pull-request@1
         with:
           head: release/v${{ github.event.inputs.versionName }}
           base: master
           title: Release v${{ github.event.inputs.versionName }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Olá!
+            Olá!</br>
             Esta PR foi criada usando o GitHub Actions.
-            `version_name` e `version_code` forão atualizadas no commit: ${{ steps.make-commit.outputs.commit }}.
+
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v4.1.0
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+          head-ref: release/v${{ github.event.inputs.versionName }}
+          base-ref: master
+          
+      - name: Print changelog
+        run: |
+          cat << "EOF"
+          ${{ steps.changelog.outputs.changelog }}
+          EOF
