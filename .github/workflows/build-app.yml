@@ -1,8 +1,6 @@
 name: Build Application
 
 on:
-  push:
-    branches: [ "master", "develop", "improvement/*", "feature/*", "enhancement/*", "fix/*"]
   pull_request:
     branches: [ "master", "develop", "improvement/*", "feature/*", "enhancement/*", "fix/*" ]
 
