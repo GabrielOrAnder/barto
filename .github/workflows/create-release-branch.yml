@@ -48,7 +48,6 @@ jobs:
         with:
           token: ${{ secrets.CI_GH_TOKEN_BOT }}
           branch: release/v${{ github.event.inputs.versionName }}
-          base: master
           delete-branch: true
           title: 'Release v${{ github.event.inputs.versionName }}'
           body: |
