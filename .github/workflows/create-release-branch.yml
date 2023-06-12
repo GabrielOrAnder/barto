@@ -41,7 +41,11 @@ jobs:
           body: |
             Olá!</br>
             Esta PR foi criada usando o GitHub Actions.
-
+      
+      - name: Changelog
+        run: |
+          gh pr diff [<number> | <url> | <branch>] [flags]
+          
       - name: Generate changelog
         id: changelog
         uses: metcalfc/changelog-generator@v4.0.0
