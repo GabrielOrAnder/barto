@@ -19,7 +19,19 @@ class LoadingButton @JvmOverloads constructor(
 
     init {
         binding = ViewLoadingButtonBinding.inflate(LayoutInflater.from(context))
-        //addView(binding.root)
+        setupAttributes(attrs)
+    }
+
+    private fun setupAttributes(attrs: AttributeSet?) {
+        context.obtainStyledAttributes(attrs, R.styleable.LoadingButton).apply {
+            getString(R.styleable.LoadingButton_buttonLabel)?.let { setLabel(it) }
+            getBoolean(R.styleable.LoadingButton_isLoading, false).let { isLoading ->
+                if (isLoading) showLoading() else hideLoading() }
+            getBoolean(R.styleable.LoadingButton_enabled, true).apply {
+                isEnabled = this
+            }
+            recycle()
+        }
     }
 
     fun showLoading() {
@@ -32,7 +44,11 @@ class LoadingButton @JvmOverloads constructor(
         binding.textButton.visibility = View.VISIBLE
     }
 
-    fun setText(text: String) {
+    fun setLabel(text: String) {
         binding.textButton.text = text
+    }
+
+    override fun setEnabled(isEnabled: Boolean) {
+        binding.loadingButton.isEnabled = isEnabled
     }
 }
