@@ -1,0 +1,26 @@
+name: Teams webhook
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Microsoft Teams Notification
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          notification-summary: ${{ github.event.inputs.versionName }}
+          notification-color: 28a745
+          timezone: America/Sao_Paulo
+
+      - name: Send a message to Microsoft Teams
+        uses: aliencube/microsoft-teams-actions@v0.8.0
+        with:
+          webhook_uri: https://outlook.office.com/webhook/<GUID>/IncomingWebhook/<GUID>
+          title: <Message Title>
+          summary: <Message Summary>
+          text: <Message Text>
+          theme_color: <Message Theme Color>
+          sections: '[{ "activityTitle": "hello world" }, { ... }]'
+          actions: '[{ "@type": "OpenUri", "name": "lorem ipsum", "targets": [{ "os": "default", "uri": "https://localhost" }] }, { ... }]'
