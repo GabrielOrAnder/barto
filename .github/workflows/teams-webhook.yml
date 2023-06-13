@@ -1,5 +1,8 @@
 name: Teams webhook
 
+on:
+  workflow_dispatch:
+
 jobs:
   create_release:
     runs-on: ubuntu-latest
