@@ -17,8 +17,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Check out master
         uses: actions/checkout@v3
+        with:
+          ref: master
+          
+      - name: Check out develop
+        uses: actions/checkout@v3
+        with:
+          ref: develop
 
       - name: Create release branch
         run: git checkout -b ${{ env.BRANCH_NAME }}
@@ -42,16 +49,9 @@ jobs:
             Olá!</br>
             Esta PR foi criada usando o GitHub Actions.
       
-      - name: Changelog
-        run: git log --pretty=format:"* [%h](<link>) %s" origin/master..${{ env.BRANCH_NAME }}
-          
-      - name: Generate changelog
+      - name: Generate Changelog
         id: changelog
-        uses: metcalfc/changelog-generator@v4.0.0
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
-          head-ref: ${{ env.BRANCH_NAME }}
-          base-ref: master
+        run: git log --pretty=format:"* [%h](<link>) %s" origin/master..${{ env.BRANCH_NAME }}
           
       - name: Print changelog
         run: |
