@@ -1,0 +1,32 @@
+name: Merge back develop
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  mergeback-develop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out master
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Check out develop
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+
+      - name: Create pull request from master to develop
+        uses: thomaseizinger/create-pull-request@1.3.0
+        with:
+          head: master
+          base: develop
+          title: Mergeback
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Olá!</br>
+            Esta PR foi criada usando o GitHub Actions.</br>
+            Mergeback para develop da release:
